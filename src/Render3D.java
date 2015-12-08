@@ -32,12 +32,6 @@ public class Render3D implements GLEventListener{
 	
 	public void render(GLAutoDrawable drawable){
         GL2 gl = drawable.getGL().getGL2();
-        gl.glBegin(gl.GL_TRIANGLES);
-        gl.glVertex2f(0.90f, 0.90f);      // Top
-        gl.glVertex2f(0.90f, 0.90f);  // Bottom Left
-        gl.glVertex2f(0.90f, 0.90f);   //Bottom Right
-        gl.glVertex2f(0.90f, 0.90f);
-        gl.glEnd();
 	}
 	
 	private void update(){

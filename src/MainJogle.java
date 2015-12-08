@@ -22,7 +22,7 @@ public class MainJogle {
         
         
         final FPSAnimator animator = new FPSAnimator(canvas, 60);
-        canvas.addGLEventListener(new Cube());
+        canvas.addGLEventListener(new Cube(0.5f,0.5f,0.5f));
        
         // by default, an AWT Frame doesn't do anything when you click
         // the close button; this bit of code will terminate the program when

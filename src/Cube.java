@@ -8,6 +8,15 @@ public class Cube implements GLEventListener{
 	float theta = 0;
 	float rotationAngle;
 	
+	
+	
+	public Cube(float x, float y, float z) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
 	@Override //affichage a chaque tour de boucle (dessin)
 	public void display(GLAutoDrawable drawable) {
 		// TODO Auto-generated method stub
@@ -46,54 +55,51 @@ public class Cube implements GLEventListener{
         gl.glPushMatrix();
         
         // First rotation - angle and vector
-        gl.glRotatef(rotationAngle, 0.0f, 1.0f, 1.0f);
-        // Second rotation - angle and vector
-        gl.glRotatef(rotationAngle, 1.0f, 0.0f, 0.0f);
+        gl.glRotatef(rotationAngle, 0.0f, -1.0f, 0.0f);
         
         gl.glBegin(gl.GL_QUADS);
         
         //phase front
         gl.glColor3f(1.0f, 0.6f, 0.5f);
-        gl.glVertex3f(-0.5f, -0.5f, -0.5f);
-        gl.glVertex3f( 0.5f, -0.5f, -0.5f);
-        gl.glVertex3f( 0.5f,0.5f, -0.5f);
-        gl.glVertex3f(-0.5f,0.5f, -0.5f);
+        gl.glVertex3f(-x, -y, -z);
+        gl.glVertex3f( x, -y, -z);
+        gl.glVertex3f( x,  y, -z);
+        gl.glVertex3f(-x,  y, -z);
         
         //phase back
         gl.glColor3f(0f, 1f, 0.5f);
-        gl.glVertex3f(-0.5f, -0.5f, 0.5f);
-        gl.glVertex3f( 0.5f, -0.5f, 0.5f);
-        gl.glVertex3f( 0.5f,0.5f, 0.5f);
-        gl.glVertex3f(-0.5f,0.5f, 0.5f);
+        gl.glVertex3f(-x, -y, z);
+        gl.glVertex3f( x, -y, z);
+        gl.glVertex3f( x,  y, z);
+        gl.glVertex3f(-x,  y, z);
         
         //phase down
-        gl.glColor3f(1.0f, 0f, 1f);
         gl.glColor3f(1.0f, 0.5f, 0.0f);
-        gl.glVertex3f(0.5f, -0.5f, 0.5f);
-        gl.glVertex3f(-0.5f, -0.5f, 0.5f);
-        gl.glVertex3f(-0.5f, -0.5f, -0.5f);
-        gl.glVertex3f(0.5f, -0.5f, -0.5f);
+        gl.glVertex3f( x, -y,  z);
+        gl.glVertex3f(-x, -y,  z);
+        gl.glVertex3f(-x, -y, -z);
+        gl.glVertex3f( x, -y, -z);
         
         //phase top
         gl.glColor3f(0.0f, 1.0f, 0.0f);
-        gl.glVertex3f(0.5f, 0.5f, -0.5f);
-        gl.glVertex3f(-0.5f, 0.5f, -0.5f);
-        gl.glVertex3f(-0.5f, 0.5f, 0.5f);
-        gl.glVertex3f(0.5f, 0.5f, 0.5f);
+        gl.glVertex3f( x, y, -z);
+        gl.glVertex3f(-x, y, -z);
+        gl.glVertex3f(-x, y,  z);
+        gl.glVertex3f( x, y,  z);
         
         //phase de droite
         gl.glColor3f(1.0f, 0.0f, 0.5f);
-        gl.glVertex3f(0.5f, 0.5f, -0.5f);
-        gl.glVertex3f(0.5f, 0.5f, 0.5f);
-        gl.glVertex3f(0.5f, -0.5f, 0.5f);
-        gl.glVertex3f(0.5f, -0.5f, -0.5f);
+        gl.glVertex3f( x,  y, -z);
+        gl.glVertex3f( x,  y,  z);
+        gl.glVertex3f( x, -y,  z);
+        gl.glVertex3f( x, -y, -z);
         
         //phase de gauche
         gl.glColor3f(1f, 1f, 1f);
-        gl.glVertex3f(-0.5f, -0.5f, 0.5f);
-        gl.glVertex3f(-0.5f, -0.5f, -0.5f);
-        gl.glVertex3f(-0.5f, 0.5f, -0.5f);
-        gl.glVertex3f(-0.5f, 0.5f, 0.5f);
+        gl.glVertex3f(-x, -y,  z);
+        gl.glVertex3f(-x, -y, -z);
+        gl.glVertex3f(-x,  y, -z);
+        gl.glVertex3f(-x,  y,  z);
         
         gl.glEnd();
         
